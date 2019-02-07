@@ -6,7 +6,7 @@ import org.apache.pdfbox.text.PDFTextStripperByArea;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException, InterruptedException{
 
         try (PDDocument document = PDDocument.load(new File("C:/Users/Minde/Desktop/MT_github/fastReader/Urban-Mythic.pdf"))) {
 
@@ -20,14 +20,10 @@ public class Main {
 
                 String pdfFileInText = textStripper.getText(document);
 
+                String words[] = pdfFileInText.split("\\s");
 
-                String lines[] = pdfFileInText.split("\\s");
-                for (String line :lines){
-                    System.out.println(line);
-                }
+                PrintOnScreen.printOnScreen(words);
             }
-
         }
-	// write your code here
-    }
+	}
 }
